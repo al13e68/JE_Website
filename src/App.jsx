@@ -1,24 +1,23 @@
-import { Routes, Route, Link } from "react-router-dom"
-import Home from "./pages/Home"
-import Gallery from "./pages/Gallery"
-import About from "./pages/About"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Gallery from "./pages/Gallery";
 
 function App() {
   return (
-    <div>
-      <nav style={{ display: "flex", gap: "20px" }}>
-        <Link to="/">Home</Link>
-        <Link to="/gallery">Gallery</Link>
-        <Link to="/about">About</Link>
-      </nav>
-
+    <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/gallery" element={<Gallery />} />
         <Route path="/about" element={<About />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
-    </div>
-  )
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;
